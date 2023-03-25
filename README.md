@@ -1,97 +1,96 @@
 # codelex_assignments
 
-Contents of this repo
-
+contents of this repo
 ```
 +---.idea
-ª       .gitignore
-ª       codelex_assignments.iml
-ª       modules.xml
-ª       php.xml
-ª       prettier.xml
-ª       vcs.xml
-ª       workspace.xml
-ª       
+|       .gitignore
+|       codelex_assignments.iml
+|       modules.xml
+|       php.xml
+|       prettier.xml
+|       vcs.xml
+|       workspace.xml
+|       
 +---Basics
-ª   +---01-variables
-ª   ª       ex_1.php
-ª   ª       ex_2.php
-ª   ª       ex_3.php
-ª   ª       
-ª   +---02-if-else-elseif
-ª   ª       ex_1.php
-ª   ª       ex_2.php
-ª   ª       ex_3.php
-ª   ª       ex_4.php
-ª   ª       ex_5.php
-ª   ª       ex_6.php
-ª   ª       ex_7.php
-ª   ª       
-ª   +---03-array-objects
-ª   ª       ex_1.php
-ª   ª       ex_2.php
-ª   ª       ex_3.php
-ª   ª       ex_4.php
-ª   ª       ex_5.php
-ª   ª       
-ª   +---04-loops
-ª   ª       ex_1.php
-ª   ª       ex_2.php
-ª   ª       ex_3.php
-ª   ª       ex_4.php
-ª   ª       ex_5.php
-ª   ª       
-ª   +---05-functions
-ª   ª       ex_1.php
-ª   ª       ex_2.php
-ª   ª       ex_3.php
-ª   ª       ex_4.php
-ª   ª       ex_5.php
-ª   ª       ex_6.php
-ª   ª       ex_7.php
-ª   ª       
-ª   +---06-files
-ª       +---ex_1
-ª       ª       main.php
-ª       ª       util.php
-ª       ª       
-ª       +---ex_2
-ª       ª       main.php
-ª       ª       util.php
-ª       ª       
-ª       +---ex_3
-ª       ª       functions.php
-ª       ª       main.php
-ª       ª       util.php
-ª       ª       
-ª       +---ex_4
-ª       ª       data.txt
-ª       ª       ex_4.php
-ª       ª       
-ª       +---ex_5
-ª               data.csv
-ª               ex_5.php
-ª               
+|   +---01-variables
+|   |       ex_1.php
+|   |       ex_2.php
+|   |       ex_3.php
+|   |       
+|   +---02-if-else-elseif
+|   |       ex_1.php
+|   |       ex_2.php
+|   |       ex_3.php
+|   |       ex_4.php
+|   |       ex_5.php
+|   |       ex_6.php
+|   |       ex_7.php
+|   |       
+|   +---03-array-objects
+|   |       ex_1.php
+|   |       ex_2.php
+|   |       ex_3.php
+|   |       ex_4.php
+|   |       ex_5.php
+|   |       
+|   +---04-loops
+|   |       ex_1.php
+|   |       ex_2.php
+|   |       ex_3.php
+|   |       ex_4.php
+|   |       ex_5.php
+|   |       
+|   +---05-functions
+|   |       ex_1.php
+|   |       ex_2.php
+|   |       ex_3.php
+|   |       ex_4.php
+|   |       ex_5.php
+|   |       ex_6.php
+|   |       ex_7.php
+|   |       
+|   \---06-files
+|       +---ex_1
+|       |       main.php
+|       |       util.php
+|       |       
+|       +---ex_2
+|       |       main.php
+|       |       util.php
+|       |       
+|       +---ex_3
+|       |       functions.php
+|       |       main.php
+|       |       util.php
+|       |       
+|       +---ex_4
+|       |       data.txt
+|       |       ex_4.php
+|       |       
+|       \---ex_5
+|               data.csv
+|               ex_5.php
+|               
 +---Hangman
-ª       Hangman_wordbank.csv
-ª       main.php
-ª       words.php
-ª       
+|       Hangman_wordbank.csv
+|       main.php
+|       words.php
+|       
 +---Rock-Paper-Scissors
-ª   +---terminal_view
-ª   ª       main.php
-ª   ª       
-ª   +---web_view
-ª       ª   functions.php
-ª       ª   main.php
-ª       ª   style.css
-ª       ª   
-ª       +---sprites
-ª               paper.jpg
-ª               rock.jpg
-ª               scissors.jpg
-ª               
-+---TicTacToe
+|   +---terminal_view
+|   |       main.php
+|   |       
+|   \---web_view
+|       |   functions.php
+|       |   main.php
+|       |   style.css
+|       |   
+|       \---sprites
+|               paper.jpg
+|               rock.jpg
+|               scissors.jpg
+|               
+\---TicTacToe
         tictactoe.php
 ```
 
