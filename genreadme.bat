@@ -13,6 +13,16 @@ more +6 README.md > tree_temp.txt
 del README.md
 ren tree_temp.txt README.md
 
+rem Add the ``` symbol at the beginning of the file
+echo ``` > tree_temp.txt
+type README.md >> tree_temp.txt
+del README.md
+ren tree_temp.txt README.md
+
+rem Add the ``` symbol at the end of the file
+echo ``` >> README.md
+
+
 rem Print a message indicating that the operation is complete
 echo Directory listing has been updated in tree.txt.
 
