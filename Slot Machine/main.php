@@ -1,3 +1,9 @@
+<?php
+session_start();
+require 'elements.php';
+require 'symbol.php';
+require 'functions.php';
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,12 +18,48 @@
 
 <div class="gjs-row" id="id0s">
     <div class="gjs-cell" id="iu8i">
+        <h6>
+            <?php
+            $temp_error = '';
+            displayError($temp_error);
+            ?>
+        </h6>
         <h1>Slot Machine</h1>
     </div>
 </div>
 <?php
-require 'elements.php';
-require 'symbol.php';
+
+//Minimum bet amount
+$MIN_BET_AMOUNT = 0.25;
+
+//Maximum bet amount
+$MAX_BET_AMOUNT = 10;
+
+//Error messages
+$BET_AMOUNT_ERROR = 'Bet amount cant be below' . $MIN_BET_AMOUNT;
+$BET_AMOUNT_ERROR2 = 'Bet amount cant be above' . $MAX_BET_AMOUNT;
+
+$bet_amount = $MIN_BET_AMOUNT;
+
+//Increase bet amount
+if (isset($_POST['plus'])) {
+    $_SESSION['bet_amount'] += $MIN_BET_AMOUNT;
+    if ($_SESSION['bet_amount'] >= $MAX_BET_AMOUNT) {
+        $temp_error = $BET_AMOUNT_ERROR2;
+        $_SESSION['bet_amount'] = $MAX_BET_AMOUNT;
+    }
+    //Decrease bet amount
+} elseif (isset($_POST['minus'])) {
+    if ($_SESSION['bet_amount'] <= $MIN_BET_AMOUNT) {
+        $temp_error = $BET_AMOUNT_ERROR;
+        $_SESSION['bet_amount'] = $MIN_BET_AMOUNT;
+    } else {
+        $_SESSION['bet_amount'] -= $MIN_BET_AMOUNT;
+    }
+} else {
+    $_SESSION['bet_amount'] = $bet_amount;
+}
+
 
 $board = array(
     array('#', '#', '#', '#'),
@@ -94,14 +136,14 @@ for ($i = 0; $i < 3; $i++) {
             <?php
             echo "[i] - for info</br>"; //TODO: add info
             echo "CREDIT: " . "0000" . "</br>"; //TODO: add credit
-            echo "BET: " . "0000" . "</br>"; //TODO: add bet
+            echo "BET: " . ($_SESSION['bet_amount']) . "</br>"; //TODO: add bet
             ?>
         </div>
     </div>
     <div class="gjs-cell" id="ivuq4">
         <div class="gjs-cell" id="iwhdj">
             <form method="post">
-                <button style="" type="submit" name="spin" value="spin">
+                <button type="submit" name="spin" value="spin">
                     <?php spin(); ?>
                 </button>
                 <button type="submit" name="minus" value="minus">
@@ -117,4 +159,9 @@ for ($i = 0; $i < 3; $i++) {
 
 </body>
 </html>
+
+
+
+
+
 

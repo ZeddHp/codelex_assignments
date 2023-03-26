@@ -89,6 +89,7 @@
 |               
 +---Slot Machine
 |   |   elements.php
+|   |   functions.php
 |   |   main.php
 |   |   style.css
 |   |   Symbol.php
