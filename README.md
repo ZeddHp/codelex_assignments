@@ -88,7 +88,9 @@
 |               scissors.jpg
 |               
 +---Slot Machine
+|   |   config.php
 |   |   elements.php
+|   |   error_messages.php
 |   |   functions.php
 |   |   main.php
 |   |   style.css

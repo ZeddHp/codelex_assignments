@@ -3,6 +3,22 @@ session_start();
 require 'elements.php';
 require 'symbol.php';
 require 'functions.php';
+require "config.php";
+require "error_messages.php";
+
+//Credit/bet values
+global $bet_amount;
+global $MIN_BET_AMOUNT;
+global $MAX_BET_AMOUNT;
+global $MIN_CREDIT_AMOUNT;
+global $MAX_CREDIT_AMOUNT;
+
+//Error messages
+global $BET_AMOUNT_ERROR;
+global $BET_AMOUNT_ERROR2;
+global $CREDIT_AMOUNT_ERROR;
+global $CREDIT_AMOUNT_ERROR2;
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -20,8 +36,9 @@ require 'functions.php';
     <div class="gjs-cell" id="iu8i">
         <h6>
             <?php
-            $temp_error = '';
-            displayError($temp_error);
+            //Display error message
+            if (!empty($_SESSION['temp_error']))
+                displayError($_SESSION['temp_error']);
             ?>
         </h6>
         <h1>Slot Machine</h1>
@@ -29,35 +46,60 @@ require 'functions.php';
 </div>
 <?php
 
-//Minimum bet amount
-$MIN_BET_AMOUNT = 0.25;
+// TODO: ERROR HANDLING
+// TODO: Disable spin button if credit is 0
+// TODO: Disable bet increase button if credit is less bet amount
+// TODO: Always check if bet amount is higher than credit | while(true)
 
-//Maximum bet amount
-$MAX_BET_AMOUNT = 10;
+// TODO: SYMBOL LOGIC
+// TODO: ...
 
-//Error messages
-$BET_AMOUNT_ERROR = 'Bet amount cant be below' . $MIN_BET_AMOUNT;
-$BET_AMOUNT_ERROR2 = 'Bet amount cant be above' . $MAX_BET_AMOUNT;
 
-$bet_amount = $MIN_BET_AMOUNT;
+// IDK if this works
+// it checks only after spin button is pressed and credit is already decreased
+if (isset($_POST['spin'])) {
+    if ($bet_amount > $_SESSION['credit']) {
+        $_SESSION['temp_error'] = $CREDIT_AMOUNT_ERROR;
+    }
+}
+
+// Set initial bet amount
+if (!$bet_amount) {
+    $bet_amount = $MIN_BET_AMOUNT;
+};
+
+// set initial credit
+if (!isset($_SESSION['credit'])) $_SESSION['credit'] = 10;
+
+// Decrease credit on spin
+if (isset($_POST['spin'])) {
+    $_SESSION['credit'] -= $_SESSION['BET_AMOUNT'];
+    if ($_SESSION['credit'] <= $MIN_CREDIT_AMOUNT) {
+        $_SESSION['temp_error'] = $CREDIT_AMOUNT_ERROR;
+        $_SESSION['credit'] = $MIN_CREDIT_AMOUNT;
+    }
+    if ($_SESSION['BET_AMOUNT'] > $bet_amount) {
+        $bet_amount = $_SESSION['BET_AMOUNT'];
+    }
+}
 
 //Increase bet amount
 if (isset($_POST['plus'])) {
-    $_SESSION['bet_amount'] += $MIN_BET_AMOUNT;
-    if ($_SESSION['bet_amount'] >= $MAX_BET_AMOUNT) {
-        $temp_error = $BET_AMOUNT_ERROR2;
-        $_SESSION['bet_amount'] = $MAX_BET_AMOUNT;
+    $_SESSION['BET_AMOUNT'] += $MIN_BET_AMOUNT;
+    if ($_SESSION['BET_AMOUNT'] >= $MAX_BET_AMOUNT) {
+        $_SESSION['temp_error'] = $BET_AMOUNT_ERROR2;
+        $_SESSION['BET_AMOUNT'] = $MAX_BET_AMOUNT;
     }
     //Decrease bet amount
 } elseif (isset($_POST['minus'])) {
-    if ($_SESSION['bet_amount'] <= $MIN_BET_AMOUNT) {
-        $temp_error = $BET_AMOUNT_ERROR;
-        $_SESSION['bet_amount'] = $MIN_BET_AMOUNT;
+    if ($_SESSION['BET_AMOUNT'] <= $MIN_BET_AMOUNT) {
+        $_SESSION['temp_error'] = $BET_AMOUNT_ERROR;
+        $_SESSION['BET_AMOUNT'] = $MIN_BET_AMOUNT;
     } else {
-        $_SESSION['bet_amount'] -= $MIN_BET_AMOUNT;
+        $_SESSION['BET_AMOUNT'] -= $MIN_BET_AMOUNT;
     }
 } else {
-    $_SESSION['bet_amount'] = $bet_amount;
+    $_SESSION['BET_AMOUNT'] = $bet_amount;
 }
 
 
@@ -79,9 +121,7 @@ for ($i = 0; $i < 3; $i++) {
         $board[$i][$j] = $slot[rand(0, 4)]->image($slot[rand(0, 4)]->name);
     }
 }
-
 ?>
-
 
 <!--// row 1-->
 <div class="gjs-row" id="im9g">
@@ -130,16 +170,22 @@ for ($i = 0; $i < 3; $i++) {
         <?php echo " {$board[2][3]}"; ?>
     </div>
 </div>
+
+
 <div class="gjs-row" id="i4mj3">
+
+    <!--Credit and Bet-->
     <div class="gjs-cell" id="ivuq4">
         <div class="gjs-cell" id="ia6s">
             <?php
             echo "[i] - for info</br>"; //TODO: add info
-            echo "CREDIT: " . "0000" . "</br>"; //TODO: add credit
-            echo "BET: " . ($_SESSION['bet_amount']) . "</br>"; //TODO: add bet
+            echo "CREDIT: " . ($_SESSION['credit']) . "</br>";
+            echo "BET: " . ($_SESSION['BET_AMOUNT']) . "</br>";
             ?>
         </div>
     </div>
+
+    <!--Buttons-->
     <div class="gjs-cell" id="ivuq4">
         <div class="gjs-cell" id="iwhdj">
             <form method="post">

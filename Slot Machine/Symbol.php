@@ -1,6 +1,5 @@
 <?php
 
-
 class Symbol
 {
     public $name;
@@ -17,8 +16,6 @@ class Symbol
     {
         return "<img style='width:68px;' src='sprites/$name.jpg' >";
     }
-    
-
 }
 
 
