@@ -87,6 +87,22 @@
 |               rock.jpg
 |               scissors.jpg
 |               
++---Slot Machine
+|   |   elements.php
+|   |   main.php
+|   |   style.css
+|   |   Symbol.php
+|   |   
+|   \---sprites
+|           10.jpg
+|           A.jpg
+|           J.jpg
+|           K.jpg
+|           minus.jpg
+|           plus.jpg
+|           Q.jpg
+|           spin.jpg
+|           
 \---TicTacToe
         tictactoe.php
         

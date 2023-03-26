@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.gjs-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    padding: 10px;
+}
+
+.gjs-cell {
+    min-height: 75px;
+    flex-grow: 1;
+    flex-basis: 100%;
+}
+
+#id0s {
+    padding: 10px 40% 10px 40%;
+}
+
+#im9g {
+    position: relative;
+    display: flex;
+    float: none;
+    padding: 5px 40% 5px 40%;
+}
+
+#irj9 {
+    flex-basis: 50%;
+    padding: 5px 0px 5px 0px;
+}
+
+#irm1 {
+    flex-basis: 50%;
+    padding: 5px 0px 5px 0px;
+}
+
+#ibji {
+    left: 25%;
+    flex-basis: 50%;
+    padding: 5px 0px 5px 0px;
+}
+
+#ixsz {
+    flex-basis: 50%;
+    padding: 5px 0px 5px 0px;
+}
+
+#ia6s {
+    left: 25%;
+    flex-basis: 50%;
+    padding: 5px 0px 5px 0px;
+}
+
+#i3k8r {
+    flex-basis: 50%;
+    padding: 5px 0px 5px 0px;
+}
+
+#invg5 {
+    flex-basis: 50%;
+    padding: 5px 0px 5px 0px;
+}
+
+#iwhdj {
+    flex-basis: 50%;
+    padding: 5px 0px 5px 0px;
+}
+
+#i8oxk {
+    position: relative;
+    display: flex;
+    float: none;
+    padding: 5px 40% 5px 40%;
+}
+
+#i7hdm {
+    left: 25%;
+    flex-basis: 50%;
+    padding: 5px 0px 5px 0px;
+}
+
+#ic3zp {
+    flex-basis: 50%;
+    padding: 5px 0px 5px 0px;
+}
+
+#i7apn {
+    flex-basis: 50%;
+    padding: 5px 0px 5px 0px;
+}
+
+#isfnm {
+    flex-basis: 50%;
+    padding: 5px 0px 5px 0px;
+}
+
+#ijxzo {
+    position: relative;
+    display: flex;
+    float: none;
+    padding: 5px 40% 5px 40%;
+}
+
+#i4mj3 {
+    padding: 10px 40% 10px 40%;
+}
+
+@media (max-width: 768px) {
+    .gjs-row {
+        flex-wrap: wrap;
+    }
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button, input[type="submit"], input[type="reset"] {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
