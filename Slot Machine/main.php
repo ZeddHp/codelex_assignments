@@ -188,8 +188,7 @@ for ($i = 0; $i < 3; $i++) {
     <div class="gjs-cell" id="ivuq4">
         <div class="gjs-cell" id="iwhdj">
             <form method="post">
-
-                <!--Pieņemu ka šo var labāk-->
+                
                 <!--disable spin button if credit is less than bet amount-->
                 <button type="submit" name="spin" value="spin">
                     <?php if ($_SESSION['credit'] < ($_SESSION['BET_AMOUNT']) ? spinDisabled() : spin()) ?>
@@ -202,7 +201,7 @@ for ($i = 0; $i < 3; $i++) {
                 <button type="submit" name="plus" value="plus">
                     <?php plus(); ?>
                 </button>
-                
+
             </form>
         </div>
     </div>
