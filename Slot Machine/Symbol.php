@@ -16,6 +16,7 @@ class Symbol
     {
         return "<img style='width:68px;' src='sprites/$name.jpg' >";
     }
+
 }
 
 

@@ -46,10 +46,6 @@ global $CREDIT_AMOUNT_ERROR2;
 </div>
 <?php
 
-// TODO: SYMBOL LOGIC
-// TODO: ...
-
-
 // IDK if this works
 // it checks only after spin button is pressed and credit is already decreased
 if (isset($_POST['spin'])) {
@@ -64,7 +60,7 @@ if (!$bet_amount) {
 };
 
 // set initial credit
-if (!isset($_SESSION['credit'])) $_SESSION['credit'] = 10;
+if (!isset($_SESSION['credit'])) $_SESSION['credit'] = 100;
 
 // Decrease credit on spin
 if (isset($_POST['spin'])) {
@@ -115,8 +111,63 @@ for ($i = 0; $i < 3; $i++) {
         $board[$i][$j] = $slot[rand(0, 4)]->image($slot[rand(0, 4)]->name);
     }
 }
-?>
 
+// TODO: winning positions pārvēst par funckiju
+$winningPositions = array(
+    array($board[0][0], $board[0][1], $board[0][2], $board[0][3]),
+    array($board[1][0], $board[1][1], $board[1][2], $board[1][3]),
+    array($board[2][0], $board[2][1], $board[2][2], $board[2][3]),
+    array($board[0][0], $board[1][0], $board[2][0], $board[0][0]),
+    array($board[0][1], $board[1][1], $board[2][1], $board[0][1]),
+    array($board[0][2], $board[1][2], $board[2][2], $board[0][2]),
+    array($board[0][3], $board[1][3], $board[2][3], $board[0][3]),
+    array($board[0][0], $board[1][1], $board[2][2], $board[0][0]),
+    array($board[0][3], $board[1][2], $board[2][1], $board[0][3]),);
+
+
+$winningLines = 0;
+for ($i = 0; $i < count($winningPositions); $i++) {
+    $winningPositions[$i] = array_unique($winningPositions[$i]);
+    if (count($winningPositions[$i]) == 1) {
+        $winningLines++;
+    }
+}
+
+function printWinnings()
+{
+    global $winningLines, $bet_amount, $points;
+    echo "Winning lines: " . $winningLines . "</br>";
+    echo "You won. " . $bet_amount * $points * $winningLines . " credits!";
+}
+
+if (isset($_POST['spin'])) {
+    for ($i = 0; $i < count($winningPositions); $i++) {
+        if (count($winningPositions[$i]) == 1) {
+
+            if ($winningPositions[$i][0] == $Ace->image($Ace->name)) {
+                $points = $Ace->points;
+            } elseif ($winningPositions[$i][0] == $King->image($King->name)) {
+                $points = $King->points;
+            } elseif ($winningPositions[$i][0] == $Queen->image($Queen->name)) {
+                $points = $Queen->points;
+            } elseif ($winningPositions[$i][0] == $Jack->image($Jack->name)) {
+                $points = $Jack->points;
+            } elseif ($winningPositions[$i][0] == $Ten->image($Ten->name)) {
+                $points = $Ten->points;
+            }
+            /*//print winning element points
+            echo $points;
+            //print winning element symbol
+            echo $winningPositions[$i][0];*/
+        }
+    }
+    if ($winningLines > 0) {
+        $_SESSION['credit'] += $bet_amount * $points * $winningLines;
+    }
+}
+
+
+?>
 
 <!--// row 1-->
 <div class="gjs-row" id="im9g">
@@ -184,7 +235,6 @@ for ($i = 0; $i < 3; $i++) {
     <div class="gjs-cell" id="ivuq4">
         <div class="gjs-cell" id="iwhdj">
             <form method="post">
-
                 <!--disable spin button if credit is less than bet amount-->
                 <!-- fuj -->
                 <button type="submit" name="spin" value="spin">
@@ -204,14 +254,20 @@ for ($i = 0; $i < 3; $i++) {
                         onclick="<?php /*$_SESSION['BET_AMOUNT'] += $MIN_BET_AMOUNT */ ?>">
                     <?php /*plus(); */ ?>
                 </button>-->
-
             </form>
         </div>
     </div>
 </div>
-
+<div style="text-align:center">
+    <?php
+    printWinnings(); ?>
+</div>
 </body>
 </html>
+
+
+
+
 
 
 
