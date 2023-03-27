@@ -102,7 +102,6 @@ if (isset($_POST['plus'])) {
     $_SESSION['BET_AMOUNT'] = $bet_amount;
 }
 
-
 $board = array(
     array('#', '#', '#', '#'),
     array('#', '#', '#', '#'),
@@ -189,15 +188,21 @@ for ($i = 0; $i < 3; $i++) {
     <div class="gjs-cell" id="ivuq4">
         <div class="gjs-cell" id="iwhdj">
             <form method="post">
+
+                <!--Pieņemu ka šo var labāk-->
+                <!--disable spin button if credit is less than bet amount-->
                 <button type="submit" name="spin" value="spin">
-                    <?php spin(); ?>
+                    <?php if ($_SESSION['credit'] < ($_SESSION['BET_AMOUNT']) ? spinDisabled() : spin()) ?>
                 </button>
+
                 <button type="submit" name="minus" value="minus">
                     <?php minus(); ?>
                 </button>
+
                 <button type="submit" name="plus" value="plus">
                     <?php plus(); ?>
                 </button>
+                
             </form>
         </div>
     </div>

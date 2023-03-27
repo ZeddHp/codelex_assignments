@@ -40,4 +40,11 @@ function spin()
     echo "<img style='width:55px;' src='sprites/spin.jpg' >";
 }
 
+function spinDisabled()
+{
+    echo "<button type='submit' name='spin' disabled>
+            <img style='width:55px;' src='sprites/spin.jpg' >
+        </button>";
+}
+
 
