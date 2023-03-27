@@ -46,11 +46,6 @@ global $CREDIT_AMOUNT_ERROR2;
 </div>
 <?php
 
-// TODO: ERROR HANDLING
-// TODO: Disable spin button if credit is 0
-// TODO: Disable bet increase button if credit is less bet amount
-// TODO: Always check if bet amount is higher than credit | while(true)
-
 // TODO: SYMBOL LOGIC
 // TODO: ...
 
@@ -122,6 +117,7 @@ for ($i = 0; $i < 3; $i++) {
 }
 ?>
 
+
 <!--// row 1-->
 <div class="gjs-row" id="im9g">
     <div class="gjs-cell" id="ibji">
@@ -190,7 +186,7 @@ for ($i = 0; $i < 3; $i++) {
             <form method="post">
 
                 <!--disable spin button if credit is less than bet amount-->
-                <!-- test again -->
+                <!-- fuj -->
                 <button type="submit" name="spin" value="spin">
                     <?php if ($_SESSION['credit'] < ($_SESSION['BET_AMOUNT']) ? spinDisabled() : spin()) ?>
                 </button>
@@ -202,6 +198,12 @@ for ($i = 0; $i < 3; $i++) {
                 <button type="submit" name="plus" value="plus">
                     <?php plus(); ?>
                 </button>
+
+                <!--varbūt šādi? lai simboli uz laukuma nepārlādētos-->
+                <!--<button type="button" name="plus" value="plus"
+                        onclick="<?php /*$_SESSION['BET_AMOUNT'] += $MIN_BET_AMOUNT */ ?>">
+                    <?php /*plus(); */ ?>
+                </button>-->
 
             </form>
         </div>
