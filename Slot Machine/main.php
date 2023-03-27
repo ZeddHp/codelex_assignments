@@ -34,14 +34,8 @@ global $CREDIT_AMOUNT_ERROR2;
 
 <div class="gjs-row" id="id0s">
     <div class="gjs-cell" id="iu8i">
-        <h6>
-            <?php
-            //Display error message
-            if (!empty($_SESSION['temp_error']))
-                displayError($_SESSION['temp_error']);
-            ?>
-        </h6>
-        <h1>Slot Machine</h1>
+
+        <h1 style="text-align: center">Slot Machine</h1>
     </div>
 </div>
 <?php
@@ -49,6 +43,8 @@ global $CREDIT_AMOUNT_ERROR2;
 // IDK if this works
 // it checks only after spin button is pressed and credit is already decreased
 if (isset($_POST['spin'])) {
+    //reset error message
+    $_SESSION['temp_error'] = '';
     if ($bet_amount > $_SESSION['credit']) {
         $_SESSION['temp_error'] = $CREDIT_AMOUNT_ERROR;
     }
@@ -166,7 +162,6 @@ if (isset($_POST['spin'])) {
     }
 }
 
-
 ?>
 
 <!--// row 1-->
@@ -261,6 +256,13 @@ if (isset($_POST['spin'])) {
 <div style="text-align:center">
     <?php
     printWinnings(); ?>
+    <h6>
+        <?php
+        //Display error message
+        if (!empty($_SESSION['temp_error']))
+            displayError($_SESSION['temp_error']);
+        ?>
+    </h6>
 </div>
 </body>
 </html>
