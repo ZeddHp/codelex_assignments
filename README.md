@@ -106,7 +106,22 @@
 |           Q.jpg
 |           spin.jpg
 |           
-\---TicTacToe
-        tictactoe.php
-        
++---TicTacToe
+|       tictactoe.php
+|       
+\---Vending Machine
+    \---sprites
+            input_c.png
+            input_e.png
+            input_eight.png
+            input_five.png
+            input_four.png
+            input_nine.png
+            input_one.png
+            input_seven.png
+            input_six.png
+            input_three.png
+            input_two.png
+            input_zero.png
+            
 ``` 
