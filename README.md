@@ -8,6 +8,25 @@
 |       vcs.xml
 |       workspace.xml
 |       
++---Arithmetic operations
+|       ex_1.php
+|       ex_10.php
+|       ex_2.php
+|       ex_3.php
+|       ex_4.php
+|       ex_5.php
+|       ex_6.php
+|       ex_7.php
+|       ex_8.php
+|       ex_9.php
+|       
++---Array basics
+|       ex_1.php
+|       ex_2.php
+|       ex_3.php
+|       ex_4.php
+|       ex_5.php
+|       
 +---Basics
 |   +---01-variables
 |   |       ex_1.php
@@ -68,6 +87,56 @@
 |               data.csv
 |               ex_5.php
 |               
++---Classes and Objects
+|   +---ex_1
+|   |       main.php
+|   |       Product.php
+|   |       
+|   +---ex_10
+|   |       Video.php
+|   |       VideoStore.php
+|   |       VideoStoreTest.php
+|   |       
+|   +---ex_11
+|   |       Account.php
+|   |       main.php
+|   |       
+|   +---ex_2
+|   |       main.php
+|   |       Point.php
+|   |       
+|   +---ex_3
+|   |       FuelGauge.php
+|   |       main.php
+|   |       Odometer.php
+|   |       
+|   +---ex_4
+|   |       Movie.php
+|   |       
+|   +---ex_5
+|   |       Date.php
+|   |       DateTest.php
+|   |       
+|   +---ex_6
+|   |       energy-drinks.php
+|   |       
+|   +---ex_7
+|   |       Dog.php
+|   |       DogTest.php
+|   |       
+|   +---ex_8
+|   |       SavingsAccount.php
+|   |       
+|   \---ex_9
+|           Account.php
+|           BankAccount.php
+|           
++---FlowOfControl
+|       ex_1.php
+|       ex_2.php
+|       ex_3.php
+|       ex_4.php
+|       
 +---Hangman
 |       Hangman_wordbank.csv
 |       main.php
@@ -110,6 +179,9 @@
 |       tictactoe.php
 |       
 \---Vending Machine
+    |   main.php
+    |   Symbol.php
+    |   
     \---sprites
             input_c.png
             input_e.png
