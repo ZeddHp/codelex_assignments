@@ -1,7 +1,7 @@
 <?php
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\GuzzleException as GuzzleException;
 
 class ApiClient
 {
@@ -12,13 +12,7 @@ class ApiClient
         $this->client = new Client();
     }
 
-    /**
-     * Returns an array of Data objects matching the provided registration code.
-     *
-     * @param string $registrationCode The registration code to search for.
-     * @return array An array of Data objects.
-     * @throws GuzzleException|JsonException If the API request fails or returns unexpected data.
-     */
+
     public function getRecords(string $registrationCode): array
     {
         $key = "&resource_id=25e80bf3-f107-4ab4-89ef-251b5b9374e9";
